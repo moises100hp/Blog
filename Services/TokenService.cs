@@ -18,7 +18,9 @@ namespace Blog.Services
                 Subject = new ClaimsIdentity(new Claim[]
                 {
                     new (ClaimTypes.Name, "moises"), //User.Identity.Name
-                    new (ClaimTypes.Role, "admin") //User.IsInRole
+                    new (ClaimTypes.Role, "admin"), //User.IsInRole
+                    new (ClaimTypes.Role, "user"), //User.IsInRole
+                    new (ClaimTypes.Role, "author") //User.IsInRole
                 }),
                 Expires = DateTime.UtcNow.AddMinutes(20),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key),
