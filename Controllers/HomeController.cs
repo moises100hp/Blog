@@ -10,7 +10,7 @@ namespace Blog.Controllers
     public class HomeController : ControllerBase
     {
         [HttpGet("health-check")]
-        [ApiKey]
+        //[ApiKey]
         public ActionResult Get() 
         {
             return Ok();

@@ -1,6 +1,47 @@
-@Blog_HostAddress = http://localhost:5125
+@Blog_HostAddress = https://localhost:7079
 
-GET {{Blog_HostAddress}}/weatherforecast/
+GET {{Blog_HostAddress}}/v1/categories
 Accept: application/json
+
+###
+
+GET {{Blog_HostAddress}}/health-check/?api_key="api_92740520-786A-48DC-A64F-AD7523C42489"
+Content-Type: application/json
+
+###
+
+POST {{Blog_HostAddress}}/v1/accounts
+Content-Type: application/json
+
+{
+  //RegisterViewModel
+}
+
+###
+
+POST {{Blog_HostAddress}}/v1/login
+Content-Type: application/json
+
+{
+  //LoginViewModel
+}
+
+###
+
+POST {{Blog_HostAddress}}/v1/login
+Content-Type: application/json
+
+{
+  //LoginViewModel
+}
+
+###
+
+PUT {{Blog_HostAddress}}/v1/categories/{id:int}
+Content-Type: application/json
+
+{
+  //EditorCategoryViewModel
+}
 
 ###
