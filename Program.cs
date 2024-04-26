@@ -14,15 +14,26 @@ ConfigureAuthentication(builder);
 ConfigureMVC(builder);
 ConfigureServices(builder);
 
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
 var app = builder.Build();
 
 LoadConfiguration(app);
 
+//Ordem Correta
+app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
-app.UseResponseCompression();
-app.UseStaticFiles();
 app.MapControllers();
+app.UseStaticFiles();
+app.UseResponseCompression();
+
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
 
 app.Run();
 
